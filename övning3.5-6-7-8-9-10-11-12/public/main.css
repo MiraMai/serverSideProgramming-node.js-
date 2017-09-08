@@ -1,0 +1,13 @@
+h1 {
+    color: deeppink;
+    border: pink solid 1px;
+}
+
+h2 {
+    color: aqua;
+    border-bottom: 1px solid aqua;
+}
+
+p {
+    color: grey;
+}

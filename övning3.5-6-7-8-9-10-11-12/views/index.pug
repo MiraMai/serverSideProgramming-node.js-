@@ -1,0 +1,14 @@
+doctype html
+html
+    head
+        title= title
+        link(rel="stylesheet" ,href="../main.css")  
+    body
+        block layout
+            h1= h1
+            p= paragraph
+            ul
+                each val, index in lista
+                    if val.firstname
+                        li= index + '' + val.firstname         
+            img(src= 'nuts.jpg')
