@@ -15,6 +15,12 @@ app.get('/', (req, res) => {
     });
 });
 
+app.get('/viewresults', (req, res) => {
+    res.render('viewresults', {
+        p: 'results'
+    });
+});
+
 io.on('connection', (socket) => {
     console.log("A user connected");
     socket.on('disconnect',() => {
