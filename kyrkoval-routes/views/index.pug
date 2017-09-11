@@ -8,7 +8,12 @@ html
     body
         script(src= '../jquery.js')
         block pagecontent
-            ul#messages
             form 
-                input#m
+                select
+                    option(selected disabled) Välj vallokal
+                    option(value="vasakyrkan") Vasakyrkan
+                    option(value="masthuggskyrkan") Masthuggskyrkan
+                    option(value="gårdstenskyrkan") Gårdstenskyrkan
+                    option(value="kortedalakyrka") Kortedala kyrka   
+                input#inputNumber
                 button Send

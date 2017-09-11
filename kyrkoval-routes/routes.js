@@ -10,7 +10,10 @@ router.get('/', (req, res) => {
 
 router.get('/viewresults', (req, res) => {
     res.render('viewresults', {
-        p: 'results'
+        vasa: 'Vasakyrkan',
+        masthug: 'Masthuggkyrkan',
+        gardsten: 'Gårdstenskyrkan',
+        kortedala: 'Kortedala kyrka'
     });
 });
 
