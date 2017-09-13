@@ -8,12 +8,12 @@ html
         script(src= '../jquery.js')
     body
         block pagecontent
-            form 
+            form(action="") 
                 select
                     option(selected disabled)= valjlokal
                     option(value="vasakyrkan")= vasa
                     option(value="masthuggskyrkan")= masthug
                     option(value="gårdstenskyrkan")= gardsten
-                    option(value="kortedalakyrka")= gardsten   
+                    option(value="kortedalakyrka")= kortedala   
                 input#inputNumber
                 button Send

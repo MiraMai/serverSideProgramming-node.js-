@@ -4,15 +4,44 @@ $(function () {
     let socket = io();
     // end of step 1
     $('form').submit(function(){
-        socket.emit('vote', $('#inputNumber').val());
-        $('#inputNumber').val('');
-        return false;
+         let votes = { 
+            inputNumber: $('#inputNumber').val(),
+            select: $('select').val(),
+            vasa: $('#vasa').val(),
+            masthug: $('#masthug').val(),
+            gardsten: $('#gardsten').val(),
+            kortedala: $('#kortedala').val()
+         };
+        socket.emit('submit', votes);
     });
 // end of step 2 
             // step 3 include the number(message that we sent) on the page
-            socket.on('vote', (number) => {
-                $('#vasa').append($('<span>').text(number));
-            })
+            socket.on('submit', (votes) => {
+                
+                
+              var lokal =  votes.select;
+              var number = $('#inputNumber').val(); 
+                
+              switch(lokal) {
+
+                  case "vasakyrkan":
+                    $('#vasa').append($('<span>').text(votes.inputNumber));
+                  break;
+                      
+                  case "masthuggskyrkan":
+                    $('#masthug').append($('<span>').text(votes.inputNumber));
+                  break; 
+                      
+                  case "gårdstenskyrkan":
+                    $('#gardsten').append($('<span>').text(votes.inputNumber));
+                  break;
+                      
+                  case "kortedalakyrka":
+                    $('#kortedala').append($('<span>').text(votes.inputNumber));
+                  break;      
+    
+              }    
+              })  
             // end of step 3
     });
 

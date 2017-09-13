@@ -19,10 +19,10 @@ io.on('connection', (socket) => {
     });
 // end of step 1 
     // step 2. We print out the event in the browser and in the console
-    socket.on('vote', function(number) {
-        console.log(number);
+    socket.on('submit', function(votes) {
+        console.log(votes);
         // we emit the 'vote' event 
-        io.emit('vote', number);
+        io.emit('submit', votes);
     });
     // end of step 2
 });
