@@ -6,11 +6,12 @@ $(function () {
     $('form').submit(function(){
          let votes = { 
             inputNumber: Number($('#inputNumber').val()),
-            select: $('select').val(),
+            selectLokal: $('#selectLokal').val(),
+            selectParti: $('#selectParti').val(),
             vasa: $('#vasa').val(),
             masthug: $('#masthug').val(),
             gardsten: $('#gardsten').val(),
-            kortedala: $('#kortedala').val()
+            kortedala: $('#kortedala').val() 
          };
         socket.emit('submit', votes);
     });
@@ -18,36 +19,38 @@ $(function () {
             // step 3 include the number(message that we sent) on the page
             socket.on('submit', (votes) => {
                               
-              console.log(votes.select);
+              console.log(votes.selectLokal);
+              console.log(votes.selectParti);
+    
                 
-              var lokal =  votes.select;
+              var lokal =  votes.selectLokal;
               let voteList = [];
     
                 
               switch(lokal) {
 
                   case "vasakyrkan":
-                    $('#vasa').append($('<span>').text(votes.inputNumber));
-                      voteList.push(votes.inputNumber);
+                    $('#vasa').append($('<span>').text((votes.selectParti) + (votes.inputNumber)));
+                      /*voteList.push(votes.inputNumber);
                       let sum = voteList.reduce((a, b) => a + b, 0);
-                      console.log(sum);
+                      console.log(sum);*/
 
                   break;
 
                   case "masthuggskyrkan":
-                    $('#masthug').append($('<span>').text(votes.inputNumber));
+                    $('#masthug').append($('<span>').text((votes.selectParti) + (votes.inputNumber)));
                   break; 
                       
                   case "gårdstenskyrkan":
-                    $('#gardsten').append($('<span>').text(votes.inputNumber));
+                    $('#gardsten').append($('<span>').text((votes.selectParti) + (votes.inputNumber)));
                   break;
                       
                   case "kortedalakyrka":
-                    $('#kortedala').append($('<span>').text(votes.inputNumber));
+                    $('#kortedala').append($('<span>').text((votes.selectParti) + (votes.inputNumber)));
                   break;   
                       
                   case null:
-                      alert("Du glömde välja vallokal :)");
+                      alert("Du glömde välja vallokal eller/och parti  :)");
                       break;
     
               }  
