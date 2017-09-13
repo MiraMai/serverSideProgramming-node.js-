@@ -5,15 +5,15 @@ html
         link(rel="stylesheet" ,href="../style.css")
         script(src='/socket.io/socket.io.js')
         script(src='https://code.jquery.com/jquery-1.11.1.js')
-    body
         script(src= '../jquery.js')
+    body
         block pagecontent
             form 
                 select
-                    option(selected disabled) Välj vallokal
-                    option(value="vasakyrkan") Vasakyrkan
-                    option(value="masthuggskyrkan") Masthuggskyrkan
-                    option(value="gårdstenskyrkan") Gårdstenskyrkan
-                    option(value="kortedalakyrka") Kortedala kyrka   
+                    option(selected disabled)= valjlokal
+                    option(value="vasakyrkan")= vasa
+                    option(value="masthuggskyrkan")= masthug
+                    option(value="gårdstenskyrkan")= gardsten
+                    option(value="kortedalakyrka")= gardsten   
                 input#inputNumber
                 button Send

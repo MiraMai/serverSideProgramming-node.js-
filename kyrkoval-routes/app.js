@@ -11,14 +11,20 @@ app.use(express.static(__dirname + '/javascript'));
 app.use(express.static(__dirname + '/public'));
 app.use('/', routes);
 
+//step 1 connects the server to the client
 io.on('connection', (socket) => {
     console.log("A user connected");
     socket.on('disconnect',() => {
         console.log("Now disconnected.");
     });
-    socket.on('vote', (msg) => {
-        io.emit('vote', msg);
+// end of step 1 
+    // step 2. We print out the event in the browser and in the console
+    socket.on('vote', function(number) {
+        console.log(number);
+        // we emit the 'vote' event 
+        io.emit('vote', number);
     });
+    // end of step 2
 });
 
 http.listen(3001, () => {
