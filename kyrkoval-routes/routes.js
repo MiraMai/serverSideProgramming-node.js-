@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 //det ska ligga en array här med alla namn
-var list = [
+/*var list = [
     {
     vallokal: 'Vasakyrkan',
     vote: 0
@@ -23,7 +23,7 @@ var list = [
 console.log(list[0].vallokal);
 list.forEach(function(element) {
     console.log('forEach ' + element.vallokal);
-});
+});*/
 
 router.get('/', (req, res) => {
     res.render('index', {

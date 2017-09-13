@@ -5,7 +5,7 @@ $(function () {
     // end of step 1
     $('form').submit(function(){
          let votes = { 
-            inputNumber: $('#inputNumber').val(),
+            inputNumber: Number($('#inputNumber').val()),
             select: $('select').val(),
             vasa: $('#vasa').val(),
             masthug: $('#masthug').val(),
@@ -17,17 +17,23 @@ $(function () {
 // end of step 2 
             // step 3 include the number(message that we sent) on the page
             socket.on('submit', (votes) => {
-                
+                              
+              console.log(votes.select);
                 
               var lokal =  votes.select;
-              var number = $('#inputNumber').val(); 
+              let voteList = [];
+    
                 
               switch(lokal) {
 
                   case "vasakyrkan":
                     $('#vasa').append($('<span>').text(votes.inputNumber));
+                      voteList.push(votes.inputNumber);
+                      let sum = voteList.reduce((a, b) => a + b, 0);
+                      console.log(sum);
+
                   break;
-                      
+
                   case "masthuggskyrkan":
                     $('#masthug').append($('<span>').text(votes.inputNumber));
                   break; 
@@ -38,9 +44,16 @@ $(function () {
                       
                   case "kortedalakyrka":
                     $('#kortedala').append($('<span>').text(votes.inputNumber));
-                  break;      
+                  break;   
+                      
+                  case null:
+                      alert("Du glömde välja vallokal :)");
+                      break;
     
-              }    
+              }  
+                
+            console.log(voteList);
+
               })  
             // end of step 3
     });
