@@ -5,7 +5,7 @@ $(function () {
     // end of step 1
     $('form').submit(function(){
          let votes = { 
-            inputNumber: Number($('#inputNumber').val()),
+            inputNumber: $('#inputNumber').val(),
             selectLokal: $('#selectLokal').val(),
             selectParti: $('#selectParti').val(),
             vasa: $('#vasa').val(),

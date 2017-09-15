@@ -26,7 +26,7 @@ list.forEach(function(element) {
 });*/
 
 router.get('/', (req, res) => {
-    res.render('index', {
+    res.render('resultatrapportering', {
         title: 'Kyrkoval',
         valjlokal: 'Välj vallokal',
         vasa: 'Vasakyrkan',
@@ -36,13 +36,20 @@ router.get('/', (req, res) => {
     });
 });
 
-router.get('/viewresults', (req, res) => {
-    res.render('viewresults', {
+router.get('/resultat', (req, res) => {
+    res.render('resultat', {
+        title: 'Kyrkoval',
         vasa: 'Vasakyrkan',
         masthug: 'Masthuggkyrkan',
         gardsten: 'Gårdstenskyrkan',
         kortedala: 'Kortedala kyrka'
     });
 });
+
+ router.get('*', (req, res) => {
+            res.status(404).render('error', {
+                title: '404- not found'
+            });
+        });   
 
 module.exports = router;
