@@ -6,15 +6,35 @@ h1 {
     color: rosybrown;
 }
 
+h2 {
+    text-align: center;
+    font-size: 29pt;
+    padding-bottom: 10px;
+    font-family: sans-serif;
+    color: rosybrown;
+    border-bottom: 1px solid rosybrown;
+}
+
 #form {
     text-align: center;
 }
 
+.container {
+    display: flex;
+    flex-direction: row;
+}
+@media (max-width: 961px) {
+    .container {
+        flex-direction: column;
+    }
+}
 .lokal {
     font-size: 24pt;
     color: rosybrown;
     margin: 10px;
     display: inline;
+    flex: 1 1 auto;
+    width: 25%;
 }
 
 select, input {
@@ -37,4 +57,7 @@ button {
     color: black;
     display: block;
     font-size: 16pt;
+    background-color: antiquewhite;
+    border-radius: 15px;
+    padding: 10px;
 }

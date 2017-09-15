@@ -24,38 +24,32 @@ $(function () {
     
                 
               var lokal =  votes.selectLokal;
+              var parti =  votes.selectParti;  
+              var number = votes.inputNumber;
               let voteList = [];
-    
                 
-              switch(lokal) {
-
-                  case "vasakyrkan":
-                    $('#vasa').append($('<span>').text((votes.selectParti) + (votes.inputNumber)));
-                      /*voteList.push(votes.inputNumber);
-                      let sum = voteList.reduce((a, b) => a + b, 0);
-                      console.log(sum);*/
-
-                  break;
-
-                  case "masthuggskyrkan":
-                    $('#masthug').append($('<span>').text((votes.selectParti) + (votes.inputNumber)));
-                  break; 
-                      
-                  case "gårdstenskyrkan":
-                    $('#gardsten').append($('<span>').text((votes.selectParti) + (votes.inputNumber)));
-                  break;
-                      
-                  case "kortedalakyrka":
-                    $('#kortedala').append($('<span>').text((votes.selectParti) + (votes.inputNumber)));
-                  break;   
-                      
-                  case null:
-                      alert("Du glömde välja vallokal eller/och parti  :)");
-                      break;
+             if ( lokal == "vasakyrkan" && parti != null && number >= 1) {
+                $('#vasa').append($('<li>').text(parti + number));
+                // voteList.push(number);
+                      //let sum = voteList.reduce((a, b) => a + b, 0);
+                     // console.log(voteList);
+                } 
+             else if (lokal == "masthuggskyrkan" && parti != null && number >= 1) {
+                $('#masthug').append($('<li>').text(parti + number));
+                }
+             else if (lokal == "gårdstenskyrkan" && parti != null && number >= 1) {
+                $('#gardsten').append($('<li>').text(parti + number));
+                }
+             else if (lokal == "kortedalakyrka" && parti != null && number >= 1) {
+                $('#kortedala').append($('<li>').text(parti + number));
+                }  
+             else {
+                alert("Du glömde välja vallokal eller/och parti  :)");
+             }    
     
-              }  
+             
                 
-            console.log(voteList);
+          //  console.log(voteList);
 
               })  
             // end of step 3
